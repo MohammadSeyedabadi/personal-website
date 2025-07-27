@@ -11,7 +11,7 @@ export default async function sitemap({ id }) {
                      `;
   if (id == "en") {
     let posts = await sql`
-                      SELECT slug, otherpageslug, lastModified
+                      SELECT slug, otherpageslug, lastmodified
                       FROM enPosts
                       `;
 
@@ -20,7 +20,7 @@ export default async function sitemap({ id }) {
     postsSitemap = posts.map((post) =>
       ({
         url: `${baseUrl}/en/${post.slug}`,
-        lastModified: new Date(post.lastModified),
+        lastModified: new Date(post.lastmodified),
         alternates: {
           languages: {
             en: `${baseUrl}/en/${post.slug}`,
@@ -106,7 +106,7 @@ export default async function sitemap({ id }) {
     postsSitemap = posts.map((post) =>
       ({
         url: `${baseUrl}/fa/${post.slug}`,
-        lastModified: new Date(post.lastModified),
+        lastModified: new Date(post.lastmodified),
         alternates: {
           languages: {
             en: `${baseUrl}/en/${post.otherpageslug}`,
