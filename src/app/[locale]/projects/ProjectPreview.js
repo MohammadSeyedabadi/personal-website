@@ -67,7 +67,7 @@ export default function ProjectPreview({ params }) {
               )}
               <a
                 className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 active:scale-95 hover:border-indigo-500 hover:dark:border-indigo-300"
-                href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
+                href={`https://github.com/MohammadSeyedabadi/${project.githubName}`}
                 target="_blank"
                 rel="noreferrer"
               >
