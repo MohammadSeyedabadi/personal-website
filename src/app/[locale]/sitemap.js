@@ -4,7 +4,8 @@ export async function generateSitemaps() {
 }
 
 export default async function sitemap({ id }) {
-  const baseUrl = "https://mohammadseyedabadi.com";
+ const baseUrl = "https://mohammadseyedabadi.netlify.app/en"
+  // const baseUrl = "https://mohammadseyedabadi.com";
   let tags = await sql`
                       SELECT en_tag en_name, fa_tag fa_name
                       FROM tagstranslations
