@@ -7,7 +7,7 @@ export default async function Stars({ projectsList, locale }) {
           repos?.find((repo) => repo.name === project.slug) && (
             <a
               key={project.slug}
-              href={`https://github.com/MohammadSeyedabadi/${project.slug}/stargazers`}
+              href={`https://github.com/MohammadSeyedabadi/${project.githubName}/stargazers`}
               target="_blank"
               className="hover:underline active:scale-75 text-indigo-500 dark:text-indigo-300"
             >

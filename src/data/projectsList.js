@@ -1,6 +1,7 @@
 export const projectsList = [
   {
     name: "Personal website",
+    githubName : "personal-website",
     enDate: "2023",
     faDate: "۲۰۲۳",
     // slug: "MohammadSeyedabadi.com",
