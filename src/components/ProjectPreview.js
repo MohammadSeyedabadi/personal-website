@@ -22,7 +22,7 @@ export default function ProjectPreview() {
                 </time>
                 <a
                   className="text-lg hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
-                  href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
+                  href={`https://github.com/MohammadSeyedabadi/${project.githubName}`}
                   target="_blank"
                   rel="noreferrer"
                 >

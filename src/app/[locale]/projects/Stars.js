@@ -1,10 +1,12 @@
 export default async function Stars({ projectsList, locale }) {
+ 
   const repos = await getRepos();
   return (
     <>
       {projectsList.map((project) => {
+         console.log(`https://github.com/MohammadSeyedabadi/${project.githubName}/stargazers`)
         return (
-          repos?.find((repo) => repo.name === project.slug) && (
+          repos?.find((repo) => repo.name === project.githubName) && (
             <a
               key={project.slug}
               href={`https://github.com/MohammadSeyedabadi/${project.githubName}/stargazers`}
@@ -12,7 +14,7 @@ export default async function Stars({ projectsList, locale }) {
               className="hover:underline active:scale-75 text-indigo-500 dark:text-indigo-300"
             >
               {Number(
-                repos.find((repo) => repo.name === project.slug)
+                repos.find((repo) => repo.name === project.githubName)
                   .stargazers_count
               ).toLocaleString(locale === "en" ? "es-US" : "fa-IR")}
             </a>
