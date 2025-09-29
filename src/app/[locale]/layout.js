@@ -65,6 +65,10 @@ export default async function LocaleLayout(props) {
           name="google-site-verification"
           content="QWnCAn_UxxXr7sdXLaRyjd9E1eG9lWQAnlDQ31nP0rs"
         />
+        <meta
+          name="google-site-verification"
+          content="kaOvWIg0U1mIs0DefR-ATy_Cbzy6TG9EOcdnDkHDSC0"
+        />
       </body>
     </html>
   );
