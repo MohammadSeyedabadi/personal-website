@@ -1,27 +1,21 @@
-export default async function Stars({ projectsList, locale }) {
- 
+import StarIcon from "@/assets/StarIcon";
+
+export default async function Stars({ githubName, locale }) {
   const repos = await getRepos();
+  const repo = repos?.find((r) => r.name === githubName);
+  if (!repo) return null;
   return (
-    <>
-      {projectsList.map((project) => {
-         console.log(`https://github.com/MohammadSeyedabadi/${project.githubName}/stargazers`)
-        return (
-          repos?.find((repo) => repo.name === project.githubName) && (
-            <a
-              key={project.slug}
-              href={`https://github.com/MohammadSeyedabadi/${project.githubName}/stargazers`}
-              target="_blank"
-              className="hover:underline active:scale-75 text-indigo-500 dark:text-indigo-300"
-            >
-              {Number(
-                repos.find((repo) => repo.name === project.githubName)
-                  .stargazers_count
-              ).toLocaleString(locale === "en" ? "es-US" : "fa-IR")}
-            </a>
-          )
-        );
-      })}
-    </>
+    <a
+      href={`https://github.com/MohammadSeyedabadi/${githubName}/stargazers`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-1 hover:underline active:scale-75 text-indigo-500 dark:text-indigo-300"
+    >
+      {Number(repo.stargazers_count).toLocaleString(
+        locale === "en" ? "en-US" : "fa-IR"
+      )}
+      <StarIcon />
+    </a>
   );
 }
 

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { projectsList } from "@/data/projectsList";
-import StarIcon from "@/assets/StarIcon";
 import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
 import { Suspense } from "react";
 import Stars from "./Stars";
@@ -9,6 +8,7 @@ export default function ProjectPreview({ params }) {
   return (
     <div className="grid gap-4 md:grid-cols-3">
       {projectsList.map((project) => {
+        const { githubName } = project;
         return (
           <div
             className="relative break-all px-4 pt-4 pb-14 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500"
@@ -27,15 +27,14 @@ export default function ProjectPreview({ params }) {
                     </span>
                   }
                 >
-                  <Stars projectsList={projectsList} locale={params.locale} />
+                  <Stars githubName={githubName} locale={params.locale} />
                 </Suspense>
-                <StarIcon />
               </div>
             </div>
             <div>
               <a
                 className="text-lg hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
-                href={`https://github.com/MohammadSeyedabadi/${project.githubName}`}
+                href={`https://github.com/MohammadSeyedabadi/${githubName}`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -67,7 +66,7 @@ export default function ProjectPreview({ params }) {
               )}
               <a
                 className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 active:scale-95 hover:border-indigo-500 hover:dark:border-indigo-300"
-                href={`https://github.com/MohammadSeyedabadi/${project.githubName}`}
+                href={`https://github.com/MohammadSeyedabadi/${githubName}`}
                 target="_blank"
                 rel="noreferrer"
               >

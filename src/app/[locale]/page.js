@@ -41,7 +41,7 @@ export default function Index() {
             </Link>{" "}
             {indexPage("descFive")}{" "}
             <Link
-              href="/blog/notes"
+              href="/blog"
               className="hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
             >
               {indexPage("descSix")}
