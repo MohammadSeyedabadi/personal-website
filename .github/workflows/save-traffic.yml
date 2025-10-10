@@ -9,8 +9,10 @@ jobs:
   save-traffic:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repo with PAT
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
 
       - name: Get clones traffic via GitHub API
         env:
@@ -18,22 +20,20 @@ jobs:
           REPO: personal-website
           TOKEN: ${{ secrets.GH_PAT }}
         run: |
+          mkdir -p analytics
           # دریافت JSON ترافیک کلون
           resp=$(curl -s -H "Authorization: token $TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
             "https://api.github.com/repos/$OWNER/$REPO/traffic/clones")
           echo "$resp" > analytics/last_clones.json
-
           # استخراج count و uniques و آرایه روزانه
           count=$(echo "$resp" | jq '.count')
           uniques=$(echo "$resp" | jq '.uniques')
           date=$(date -u +"%Y-%m-%d")
-
           # اگر فایل CSV وجود ندارد، هدر را ایجاد کن
           if [ ! -f analytics/traffic.csv ]; then
             echo "date,total_count,total_uniques,clones_by_day_json" > analytics/traffic.csv
           fi
-
           # اضافه کردن یک ردیف شامل JSON روزها
           clones_json=$(echo "$resp" | jq '.clones')
           clones_json_escaped=$(echo "$clones_json" | jq -c .)
@@ -45,4 +45,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add analytics/traffic.csv analytics/last_clones.json
           git commit -m "daily: append traffic data $(date -u +%F)" || echo "no changes to commit"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/MohammadSeyedabadi/personal-website.git HEAD:master
+          git push origin master
