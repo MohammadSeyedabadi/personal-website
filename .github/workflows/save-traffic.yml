@@ -48,7 +48,12 @@ jobs:
             echo "date,total_clones,total_unique_cloners,clones_by_day_json,total_views,total_unique_visitors,views_by_day_json" > analytics/traffic.csv
           fi
 
-          echo "${date},${count_clones},${uniques_clones},\"${clones_json_escaped}\",${count_views},${uniques_views},\"${views_json_escaped}\"" >> analytics/traffic.csv
+          # جلوگیری از داده تکراری
+          if ! grep -q "^${date}," analytics/traffic.csv; then
+            echo "${date},${count_clones},${uniques_clones},\"${clones_json_escaped}\",${count_views},${uniques_views},\"${views_json_escaped}\"" >> analytics/traffic.csv
+          else
+            echo "Data for ${date} already exists in CSV, skipping append."
+          fi
 
       - name: Commit and push analytics
         run: |
