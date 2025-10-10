@@ -1,8 +1,8 @@
-name: Save GitHub Traffic Weekly
+name: Save GitHub Traffic Daily
 
 on:
   schedule:
-    - cron: '0 0 * * 0'   # هر یکشنبه ساعت 00:00 UTC
+    - cron: '0 0 * * *'   # هر روز ساعت 00:00 UTC
   workflow_dispatch:      # امکان اجرای دستی
 
 jobs:
@@ -60,5 +60,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add analytics/traffic.csv analytics/last_clones.json analytics/last_views.json
-          git commit -m "weekly: append traffic data $(date -u +%F)" || echo "no changes to commit"
+          git commit -m "daily: append traffic data $(date -u +%F)" || echo "no changes to commit"
           git push origin master
