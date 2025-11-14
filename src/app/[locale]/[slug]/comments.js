@@ -9,7 +9,7 @@ export default function Comments({locale}) {
       <section className="lg:col-span-8 mt-12 lg:mt-4">
         <Giscus
           id="comments"
-          repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
+          repo="MohammadSeyedabadi/personal-website"
           repoId="R_kgDOKeamUQ"
           category="Announcements"
           categoryId="DIC_kwDOKeamUc4CbDQi"
