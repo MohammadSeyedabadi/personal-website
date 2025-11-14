@@ -6,9 +6,10 @@ import "@/styles/toggle.css";
 import CustomLayout from "@/components/layout/CustomLayout";
 import { PreferencesContextProvider } from "@/store/preferences-context";
 import { notFound } from "next/navigation";
+import config from "@/utils/config";
 
 export const metadata = {
-  metadataBase: new URL("https://mohammadseyedabadi.com"),
+  metadataBase: new URL(config.siteUrl),
   alternates: {
     languages: {
       en: "/en",
