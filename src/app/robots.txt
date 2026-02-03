@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://mohammadseyedabadi.netlify.app/en/sitemap/en.xml
+
+Sitemap: https://mohammadseyedabadi.netlify.app/fa/sitemap/fa.xml

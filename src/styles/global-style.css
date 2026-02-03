@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --font-family-base: ;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: initial;
+}
+
+html {
+  font-family: sans-serif, system-ui, "Segoe UI", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Arial;
+}
+
+/* Blockquote */
+
+blockquote strong {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  font-weight: 700;
+}
+
+.code--block-header {
+  color: var(--color-1);
+  padding: 0.25rem 1rem;
+  border: 2px solid var(--color-2);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: var(--color-3);
+}
+
+.code--block-inline-code {
+  color: var(--color-1);
+  background-color: var(--color-3);
+  padding: 0.1rem 0.4rem;
+  margin: 0 0.1rem;
+  border: 2px solid var(--color-2);
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+pre {
+  max-height: 50vh;
+}
+
+pre > div[dir="ltr"] > pre {
+  border-radius: 10px;
+  margin-top: 0 !important;
+  border: 2px solid var(--color-2) !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+.code--block-header + pre {
+  border-top-left-radius: initial !important;
+  border-top-right-radius: initial !important;
+  padding: 1.25rem 0 !important;
+}
+/* must be for highlight, highlight doenst work without linenumbers */
+.SHOWLINENUMBERS > pre {
+  padding: 1.25rem 0 !important;
+}
+
+span.linenumber {
+  display: none !important;
+}
+
+/* Table */
+
+table {
+  border: 2px solid var(--color-5);
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+td,
+th {
+  hyphens: auto;
+  padding: 0.5rem;
+  text-align: left;
+  word-break: break-word;
+  /* border-bottom: 1px solid var(--color-4); */
+}
+
+[data-theme="light"] tr:nth-child(even) {
+  background-color: var(--color-4);
+  
+}
+
+[data-theme="dark"] tr:nth-child(even) {
+  background-color: var(--color-5);
+}
+
+/* [data-theme="light"] tr:hover,
+[data-theme="dark"] tr:hover {
+  background-color: #a5b4fc;
+  color: black;
+} */
+
+table > thead {
+  background:  var(--color-5);
+  /* border-bottom: 2px solid var(--color-4); */
+}
+
+ol {
+  list-style-type: disc;
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+[dir="rtl"] ol {
+  margin-right: 1rem;
+}
+
+[dir="rtl"] li > ol {
+  margin-right: 1rem;
+}
+
+[dir="ltr"] ol {
+  margin-left: 1rem;
+}
+
+[dir="ltr"] li > ol {
+  margin-left: 1rem;
+}
+
+ol li ol {
+  margin-bottom: 0;
+  list-style-type: circle;
+}
+
+mark {
+  font-weight: 600;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+u {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+svg.post {
+  opacity: 0;
+}
+
+a.post:hover svg.post {
+  opacity: 1;
+}
+
+/* game */
+
+/* .huPlayer {
+  background-color: var(--huPlayer-bg-color);
+} */
+
+/* .aiPlayer {
+  background-color: var(--aiPlayer-bg-color);
+} */
+
+/* .tieGame {
+  background-color: var(--tieGame-bg-color);
+} */
+
+/* OLD : 1627 */
+/* NEW :  */

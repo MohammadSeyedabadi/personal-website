@@ -1,0 +1,124 @@
+{
+  "Config": {
+    "SiteTitle": "Mohammad Seyedabadi",
+    "Description": "Software engineer and open source creator. This is my digital garden.",
+    "AboutMe": "About me",
+    "Read": "Read more about",
+    "Projects": "Projects",
+    "HighLight": "A highlight of my open-source work",
+    "Tag": "A list of posts tagged",
+    "Tags": "Tags",
+    "TagsList": "A list of all tags."
+  },
+  "navigation": {
+    "Home": "Home",
+    "About": "About",
+    "Projects": "Projects",
+    "Contact": "Contact",
+    "Blog": "Blog",
+    "PreferencesT": "Preferences",
+    "Theme": "Theme",
+    "Dark": "Dark",
+    "Light": "Light",
+    "System": "System",
+    "Language": "Language",
+    "LanguageStatus": "English",
+    "Close": "Close"
+  },
+  "Index": {
+    "descOne": "Hi, I'm Mohammad!",
+    "descTwo": "Welcome to my digital garden.",
+    "descThree": "I'm a software developer in Neyshabur. I love to",
+    "descFour": " build",
+    "descFive": "and repair. I sometimes also",
+    "descSix": "blog.",
+
+    "article": "Article",
+    "demo": "Demo",
+    "source": "Source",
+    "projects": "Projects",
+    "viewAll": "View all"
+  },
+  "me": {
+    "me": "me",
+    "descOne": "About me",
+    "descTwo": "I'm Mohammad! I'm a software developer working in Neyshabur. Welcome to my spot on the web for my projects, tutorials and anything else I want to show the world. Check out the",
+    "descThree": "projects",
+    "descFour": " page to see a highlight of my open-source work, and the ",
+    "descFive": "blog",
+    "descSix": "for my tutorials and more.",
+    "descSeven": "Work experience",
+    "descEight": "I won't bore you too much with my work history, though; that's what my",
+    "descNine": "CV",
+    "descTen": ",",
+    "descEleven": "GitHub",
+    "descTwelve": "and",
+    "descThirteen": "LinkedIn",
+    "descFourteen": "are for.",
+    "descFifteen": "This is my email in case you wanted to contact me: "
+  },
+
+  "Projects": {
+    "Projects": "Projects"
+  },
+
+  "blog": {
+    "Blog": "Blog",
+    "ViewAllTags": "view all tags",
+    "BlogDesc":"Browse all posts.",
+    "Notes": "Notes",
+    "Code": "Code",
+    "NotesDesc": "Browse all notes except those relating to code or ",
+    "CodeDesc": "Browse all notes relating to code or ",
+    "PostDetails": "Post details",
+    "Published": "Published",
+    "LastEdited": "Last edited",
+    "Category": "Category",
+    "Tags": "Tags",
+    "SubscribeToTheNewsletter": "Subscribe to the Newsletter"
+  },
+
+  "Tags": {
+    "AllTags": "All Tags",
+    "CodeLinkDesc": "Notes related to code",
+    "AllTagsPage": "All Tags Page",
+    "Post": "post"
+  },
+
+  "notes": {
+    "NoteDetails": "Note details",
+    "Published": "Published",
+    "LastEdited": "Last edited",
+    "Category": "Category",
+    "Tags": "Tags",
+    "SubscribeToTheNewsletter": "Subscribe to the newsletter"
+  },
+
+  "Footer": {
+    "LinkedIn": "LinkedIn",
+    "GitHub": "GitHub"
+  },
+
+  "Game": {
+    "letsplay": "Lets play some game",
+    "game": "Game",
+    "games": "Games",
+    "TicTacToe": "Tic Tac Toe",
+    "TicTacToeDesc": "Two players play against each other using a 3×3 board.",
+    "Play": "Play",
+    "descOne": "The name of the game is tic tac toe. The way i programmed it, it is impossible to win and the best result that you would get is a Tie!",
+    "youWin": "You win!",
+    "youLose": "You lose.",
+    "tieGame": "Tie Game!",
+    "replay": "Replay"
+  },
+
+  "NotFoundPage": {
+    "error": "404 Not Found",
+    "postErrorExplanation": "Could not find the requested blog post.",
+    "restErrorExplanation": "Could not find the requested page.",
+    "goBack": "Go Back",
+    "goBackToMainPage": "Go back to Home page.",
+    "goBackToBlogPage": "Go Back To Blog Page"
+  }
+}

@@ -1,0 +1,64 @@
+name: Save GitHub Traffic Daily
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # هر روز ساعت 00:00 UTC
+  workflow_dispatch:      # امکان اجرای دستی
+
+jobs:
+  save-traffic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo with PAT
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Get clones and views traffic via GitHub API
+        env:
+          OWNER: MohammadSeyedabadi
+          REPO: personal-website
+          TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          mkdir -p analytics
+          date=$(date -u +"%Y-%m-%d")
+
+          # --- Clones ---
+          resp_clones=$(curl -s -H "Authorization: token $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$OWNER/$REPO/traffic/clones")
+          echo "$resp_clones" > analytics/last_clones.json
+          count_clones=$(echo "$resp_clones" | jq '.count')
+          uniques_clones=$(echo "$resp_clones" | jq '.uniques')
+          clones_json=$(echo "$resp_clones" | jq '.clones')
+          clones_json_escaped=$(echo "$clones_json" | jq -c .)
+
+          # --- Visitors ---
+          resp_views=$(curl -s -H "Authorization: token $TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$OWNER/$REPO/traffic/views")
+          echo "$resp_views" > analytics/last_views.json
+          count_views=$(echo "$resp_views" | jq '.count')
+          uniques_views=$(echo "$resp_views" | jq '.uniques')
+          views_json=$(echo "$resp_views" | jq '.views')
+          views_json_escaped=$(echo "$views_json" | jq -c .)
+
+          # --- CSV ---
+          if [ ! -f analytics/traffic.csv ]; then
+            echo "date,total_clones,total_unique_cloners,clones_by_day_json,total_views,total_unique_visitors,views_by_day_json" > analytics/traffic.csv
+          fi
+
+          # جلوگیری از داده تکراری
+          if ! grep -q "^${date}," analytics/traffic.csv; then
+            echo "${date},${count_clones},${uniques_clones},\"${clones_json_escaped}\",${count_views},${uniques_views},\"${views_json_escaped}\"" >> analytics/traffic.csv
+          else
+            echo "Data for ${date} already exists in CSV, skipping append."
+          fi
+
+      - name: Commit and push analytics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add analytics/traffic.csv analytics/last_clones.json analytics/last_views.json
+          git commit -m "daily: append traffic data $(date -u +%F)" || echo "no changes to commit"
+          git push origin master
